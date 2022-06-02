@@ -10,7 +10,7 @@ import Foundation
 class FlickrClient {
     
     enum Endpoints {
-        static let base = "https://api.flickr.com/services/rest/?method=flickr.photos.search"
+        static let base = "https://api.flickr.com/services/rest/"
         case getPhotos(Double, Double)
         case getUrls(String, String, String)
         
