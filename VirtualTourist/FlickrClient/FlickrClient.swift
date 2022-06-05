@@ -10,16 +10,16 @@ import Foundation
 class FlickrClient {
     
     enum Endpoints {
-        static let base = "https://api.flickr.com/services/rest/"
-        case getPhotos(Double, Double)
+        static let base = "https://www.flickr.com/services/rest/?method=flickr.photos.search"
+        case getPhotos(Double, Double, Int, Int)
         case getUrls(String, String, String)
-        
+    
         struct Auth {
             static let apiKey = "f570d8534ebf1866cd7d713dffd218e7"
         }
         var stringValue: String {
             switch self {
-            case.getPhotos(let latitude, let longitude): return
+            case.getPhotos(let latitude, let longitude, let perPage, let page): return
                 Endpoints.base + "&api_key=\(Auth.apiKey)&lat=\(latitude)&lon=\(longitude)&per_page=20&page=\(Int.random(in: 1...10))&format=json&nojsoncallback=1"
             case .getUrls(let serverId, let id, let secret): return
                 "https://live.staticflickr.com/\(serverId)/\(id)_\(secret).jpg"
@@ -57,8 +57,8 @@ class FlickrClient {
         task.resume()
         return task
     }
-    class func getPhotos(latitude: Double, longitude: Double, completion: @escaping(PhotoResponse?, Error?) -> Void ){
-        taskForGETRequest(url: Endpoints.getPhotos(latitude, longitude).url, responseType:PhotoResponse.self){
+    class func getPhotos(latitude: Double, longitude: Double, perPage: Int, page: Int, completion: @escaping(PhotoResponse?, Error?) -> Void ){
+        taskForGETRequest(url: Endpoints.getPhotos(latitude, longitude, perPage, page).url, responseType:PhotoResponse.self){
             response, error in
             if let response = response {
                 completion(response.self, nil)

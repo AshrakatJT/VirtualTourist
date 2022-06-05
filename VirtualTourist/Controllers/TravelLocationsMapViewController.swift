@@ -16,7 +16,7 @@ class TravelLocationsMapViewController: UIViewController, MKMapViewDelegate, NSF
     var dataController: DataController!
     var fetchedResultsController: NSFetchedResultsController<Pin>!
     
-    fileprivate func setupFetchedResultsController() {
+fileprivate func setupFetchedResultsController() {
             let fetchRequest:NSFetchRequest<Pin> = Pin.fetchRequest()
             let sortDescriptor = NSSortDescriptor(key: "creationDate", ascending: false)
             fetchRequest.sortDescriptors = [sortDescriptor]
@@ -31,7 +31,7 @@ class TravelLocationsMapViewController: UIViewController, MKMapViewDelegate, NSF
     }
     
 
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
         
         mapView.delegate = self
@@ -40,7 +40,7 @@ class TravelLocationsMapViewController: UIViewController, MKMapViewDelegate, NSF
         setMapZoom()
         
     }
-    override func viewWillAppear(_ animated: Bool) {
+override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         
         mapView.isUserInteractionEnabled = true
@@ -49,8 +49,8 @@ class TravelLocationsMapViewController: UIViewController, MKMapViewDelegate, NSF
         saveMapZoom()
         
     }
-    @objc func mapTap(gesture: UILongPressGestureRecognizer){
-        if gesture.state == .ended {
+@objc func mapTap(gesture: UILongPressGestureRecognizer){
+    if gesture.state == UILongPressGestureRecognizer.State.began {
             let location = gesture.location(in: mapView)
             let coordinate = mapView.convert(location, toCoordinateFrom: mapView)
             
@@ -62,7 +62,7 @@ class TravelLocationsMapViewController: UIViewController, MKMapViewDelegate, NSF
             print("pin: \(coordinate.latitude), \(coordinate.longitude)")
         }
     }
-    func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
+func mapView(_ mapView: MKMapView, viewFor annotation: MKAnnotation) -> MKAnnotationView? {
         let  reusedId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reusedId) as? MKPinAnnotationView
@@ -78,7 +78,7 @@ class TravelLocationsMapViewController: UIViewController, MKMapViewDelegate, NSF
         return pinView
     }
     
-    func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
+func mapView(_ mapView: MKMapView, didSelect view: MKAnnotationView) {
         mapView.deselectAnnotation(view.annotation, animated: false)
         
         let latitudeClicked = view.annotation?.coordinate.latitude
@@ -143,7 +143,7 @@ func setMapZoom() {
     
 }
     
-    func saveMapZoom(){
+func saveMapZoom(){
         
         UserDefaults.standard.set(mapView.centerCoordinate.latitude, forKey: ZoomLevel.latitude)
         UserDefaults.standard.set(mapView.centerCoordinate.longitude, forKey: ZoomLevel.longitude)

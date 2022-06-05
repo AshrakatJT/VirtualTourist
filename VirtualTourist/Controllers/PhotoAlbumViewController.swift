@@ -21,7 +21,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
     var dataController: DataController!
     var fetchedResultsController: NSFetchedResultsController<Photo>!
     
-    override func viewDidLoad() {
+override func viewDidLoad() {
         super.viewDidLoad()
         
         collectionView.delegate = self
@@ -33,7 +33,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         noImagesLabel.isHidden = true
         }
     
-    override func viewWillAppear(_ animated: Bool) {
+override func viewWillAppear(_ animated: Bool) {
         super.viewWillAppear(animated)
         newCollectionButton.isEnabled = false
         setupFetchedResultsController()
@@ -53,7 +53,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         newCollectionButton.isEnabled = true
         }
     
-    func mapView(_ mapView: MKMapView, viewFor annotation:MKAnnotation) -> MKAnnotationView? {
+func mapView(_ mapView: MKMapView, viewFor annotation:MKAnnotation) -> MKAnnotationView? {
         let reusedId = "pin"
         
         var pinView = mapView.dequeueReusableAnnotationView(withIdentifier: reusedId) as? MKPinAnnotationView
@@ -71,7 +71,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         
         if fetchedResultsController.fetchedObjects!.count == 0 {
             newCollectionButton.isEnabled = false
-            FlickrClient.getPhotos(latitude: pin.latitude, longitude: pin.longitude) { response, error in
+            FlickrClient.getPhotos(latitude: pin.latitude, longitude: pin.longitude, perPage: 12, page: 1) { response, error in
                 if error == nil && response?.photos.photo != nil && response?.photos.total != 0 {
                     guard let response = response
                     else {return}
@@ -89,9 +89,9 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
                         
                         self.collectionView.reloadData()
                     }
-                    print("album saved")
+                    debugPrint("album saved")
                 } else {
-                   print("No photo downloaded")
+                   debugPrint("No photo downloaded")
                     self.noImagesLabel.isHidden = false
                 }
             }
@@ -100,7 +100,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         }
     }
     
-    func setupFetchedResultsController() {
+func setupFetchedResultsController() {
         let fetchRequest: NSFetchRequest<Photo> = Photo.fetchRequest()
         let predicate = NSPredicate(format: "pin == %@", pin)
         fetchRequest.predicate = predicate
@@ -116,7 +116,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         }
     }
     
-    func setupMap(){
+func setupMap(){
         
         let annotation = MKPointAnnotation()
         annotation.coordinate.longitude = pin.longitude
@@ -131,7 +131,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
         mapView.setRegion(region, animated: true)
     }
     
-    func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
+func collectionView(_ collectionView: UICollectionView, didSelectItemAt indexPath: IndexPath) {
         let objectSelected = fetchedResultsController.object(at: indexPath)
         dataController.viewContext.delete(objectSelected)
         

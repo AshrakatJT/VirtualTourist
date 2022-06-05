@@ -149,7 +149,7 @@
                     <navigationItem key="navigationItem" id="68B-A8-kDM"/>
                     <connections>
                         <outlet property="collectionView" destination="ai7-si-XLs" id="dY3-5U-xVA"/>
-                        <outlet property="mapView" destination="gNF-2B-Kcu" id="c59-tG-lgq"/>
+                        <outlet property="mapView" destination="gNF-2B-Kcu" id="85O-fs-XhS"/>
                         <outlet property="newCollectionButton" destination="2ZX-iF-hKS" id="mba-x4-lts"/>
                         <outlet property="noImagesLabel" destination="WIt-Wh-SJb" id="gwj-99-TNH"/>
                     </connections>
