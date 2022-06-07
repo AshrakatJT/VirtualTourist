@@ -169,13 +169,17 @@ extension PhotoAlbumViewController: UICollectionViewDelegate, UICollectionViewDa
         let cell = collectionView.dequeueReusableCell(withReuseIdentifier: "CollectionViewCell", for: indexPath) as! CollectionViewCell
         let aPhoto = fetchedResultsController.object(at: indexPath)
         newCollectionButton.isEnabled = false
-        cell.activityIndicator.startAnimating()
         
         if let url = aPhoto.url {
             if let image = aPhoto.image {
                 cell.imageView.image = UIImage(data: image)
             } else {
+                
+                cell.activityIndicator.isHidden = false
+                cell.activityIndicator.startAnimating()
+                
                 FlickrClient.downloadPhotos(imageURL: URL(string: (url))!) {
+                    
                     data, error in
                     
                     if let data = data {
