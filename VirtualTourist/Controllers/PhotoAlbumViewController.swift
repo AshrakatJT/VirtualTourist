@@ -15,6 +15,7 @@ class PhotoAlbumViewController: UIViewController, MKMapViewDelegate, NSFetchedRe
     @IBOutlet weak var collectionView: UICollectionView!
     @IBOutlet weak var newCollectionButton: UIButton!
     @IBOutlet weak var noImagesLabel: UILabel!
+    @IBOutlet weak var imageFlowLayout: UICollectionViewFlowLayout!
     
     var photo: Photo!
     var pin: Pin!
@@ -31,6 +32,13 @@ override func viewDidLoad() {
         collectionView.allowsMultipleSelection = true
         mapView.delegate = self
         noImagesLabel.isHidden = true
+    
+    let space:CGFloat = 3.0
+    let dimension = (view.frame.size.width - (2 * space)) / 3.0
+    
+    imageFlowLayout.minimumInteritemSpacing = space
+    imageFlowLayout.minimumLineSpacing = space
+    imageFlowLayout.itemSize = CGSize(width: dimension, height: dimension)
         }
     
 override func viewWillAppear(_ animated: Bool) {

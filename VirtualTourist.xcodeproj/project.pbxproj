@@ -19,7 +19,6 @@
 		AF36CEF528399C37008B321E /* FlickrClient.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF36CEF428399C37008B321E /* FlickrClient.swift */; };
 		AF36CEF828399CA6008B321E /* PhotoResponse.swift in Sources */ = {isa = PBXBuildFile; fileRef = AF36CEF728399CA6008B321E /* PhotoResponse.swift */; };
 		AF36CEFF283C3606008B321E /* VirtualTourist.xcdatamodeld in Sources */ = {isa = PBXBuildFile; fileRef = AF36CEFD283C3606008B321E /* VirtualTourist.xcdatamodeld */; };
-		AFC6842B2842D100000C19EF /* Layout.swift in Sources */ = {isa = PBXBuildFile; fileRef = AFC6842A2842D100000C19EF /* Layout.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -37,7 +36,6 @@
 		AF36CEF428399C37008B321E /* FlickrClient.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = FlickrClient.swift; sourceTree = "<group>"; };
 		AF36CEF728399CA6008B321E /* PhotoResponse.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PhotoResponse.swift; sourceTree = "<group>"; };
 		AF36CEFE283C3606008B321E /* VirtualTourist.xcdatamodel */ = {isa = PBXFileReference; lastKnownFileType = wrapper.xcdatamodel; path = VirtualTourist.xcdatamodel; sourceTree = "<group>"; };
-		AFC6842A2842D100000C19EF /* Layout.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Layout.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -98,7 +96,6 @@
 				AF36CEDD2837354F008B321E /* Main.storyboard */,
 				AF36CEE22837355D008B321E /* LaunchScreen.storyboard */,
 				AF36CEEE28399A01008B321E /* CollectionViewCell.swift */,
-				AFC6842A2842D100000C19EF /* Layout.swift */,
 			);
 			path = View;
 			sourceTree = "<group>";
@@ -205,7 +202,6 @@
 				AF36CEFF283C3606008B321E /* VirtualTourist.xcdatamodeld in Sources */,
 				AF36CED82837354F008B321E /* AppDelegate.swift in Sources */,
 				AF36CEDA2837354F008B321E /* SceneDelegate.swift in Sources */,
-				AFC6842B2842D100000C19EF /* Layout.swift in Sources */,
 				AF36CEED2838523B008B321E /* PhotoAlbumViewController.swift in Sources */,
 				AF36CEF828399CA6008B321E /* PhotoResponse.swift in Sources */,
 			);
