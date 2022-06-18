@@ -15,8 +15,8 @@ The project requires to persist a complex model using Core Data, and plist persi
 # User Interface
 
 ## Travel Locations Map View
+![screenshot_1](https://user-images.githubusercontent.com/92055081/174439372-a33dfc03-bd60-49dd-bed1-223cd5e4be41.png)
 
-![Simulator Screen Shot - iPod touch (7th generation) - 2022-06-18 at 14 59 11](https://user-images.githubusercontent.com/92055081/174439326-e7b225a3-be1c-4679-bd88-2277904b8235.png)
 
 ## Photo Album View
 
