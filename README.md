@@ -11,3 +11,10 @@ The project requires to persist a complex model using Core Data, and plist persi
 * Create a user interface that intuitively communicates network activity and download progress
 * Store media on the device file system
 * Use Core Data for local persistence of an object structure
+
+# User Interface
+
+## Travel Locations Map View
+
+## Photo Album View
+
