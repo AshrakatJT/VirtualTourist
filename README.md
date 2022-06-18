@@ -19,4 +19,6 @@ The project requires to persist a complex model using Core Data, and plist persi
 
 
 ## Photo Album View
+![screenshot_2](https://user-images.githubusercontent.com/92055081/174439417-5c29ba36-3c7d-4d44-b458-572f66ee57cf.png)
+
 
